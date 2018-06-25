@@ -16,6 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+js_info_dict = {
+    'packages': ('recurrence', ),
+}
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^jsi18n/$', JavaScriptCatalog.as_view(), js_info_dict),
 ]
