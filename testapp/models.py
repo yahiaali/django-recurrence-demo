@@ -1,3 +1,7 @@
 from django.db import models
+from recurrence.fields import RecurrenceField
 
-# Create your models here.
+
+class Course(models.Model):
+    title = models.CharField(max_length=200)
+    recurrences = RecurrenceField()
