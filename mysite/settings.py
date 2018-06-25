@@ -69,7 +69,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-INSTALLED_APPS = ('recurrence',)
+INSTALLED_APPS = ['recurrence']
 
 
 # Database
