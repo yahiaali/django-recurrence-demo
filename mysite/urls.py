@@ -9,5 +9,6 @@ js_info_dict = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('testapp/', include('testapp.urls')),
     url(r'^jsi18n/$', JavaScriptCatalog.as_view(), js_info_dict),
 ]
