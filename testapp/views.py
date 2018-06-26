@@ -4,5 +4,10 @@ from .forms import CourseForm
 
 
 def index(request):
-    form = CourseForm()
+    if request.method == "POST":
+        form = CourseForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = CourseForm()
     return render(request, 'test_form.html', {'form': form})
