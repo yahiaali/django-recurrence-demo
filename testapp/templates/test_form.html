@@ -1,6 +1,13 @@
+<script type="text/javascript" src="{% url 'javascript_catalog' %}"></script>
 <form method="POST" class="post-form">
     {% csrf_token %}
     {{ form.media }}
-    {{ form }}
-    <button type="submit">Submit</button>
+    {% for field in form %}
+        {% if field.name == "recurrences" %}
+            <p>{{ field.label_tag }} <br> {{ field }}</p>
+        {% else %}
+            <p>{{ field.label_tag }} {{ field }}</p>
+        {% endif %}
+    {% endfor %} <br>
+    <p><button type="submit" class="save btn btn-default">Save</button></p>
 </form>
