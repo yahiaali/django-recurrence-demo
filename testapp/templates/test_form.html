@@ -1,13 +1,21 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script type="text/javascript" src="{% url 'javascript_catalog' %}"></script>
-<form method="POST" class="post-form">
-    {% csrf_token %}
-    {{ form.media }}
-    {% for field in form %}
-        {% if field.name == "recurrences" %}
-            <p>{{ field.label_tag }} <br> {{ field }}</p>
-        {% else %}
-            <p>{{ field.label_tag }} {{ field }}</p>
-        {% endif %}
-    {% endfor %} <br>
-    <p><button type="submit" class="save btn btn-default">Save</button></p>
-</form>
+<div class="container">
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.media }}
+        <div class="row">
+            {% for field in form %}
+                {% if field.name == "recurrences" %}
+                    {{ field.label_tag }} <br>
+                    {{ field }}
+                {% else %}
+                    <p>{{ field.label_tag }} {{ field }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="row">
+            <button type="submit" class="save btn btn-default">Save</button>
+        </div>
+    </form>
+</div>
